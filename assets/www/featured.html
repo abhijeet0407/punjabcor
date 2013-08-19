@@ -6,20 +6,11 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			
 			<link rel="stylesheet" href="PNL1.css" />
-			
-            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" />
+			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" />
 			<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 			<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 			<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-			 <script type="text/javascript" src="PushNotification.js"></script>
-			
-			
-			
-			
-			
 			<script type="text/javascript">
-			// handle GCM notifications for Android
-            
 			
     // Make your jQuery Mobile framework configuration changes here!
 
@@ -30,8 +21,6 @@
 
 
 $(document).ready(function(){
- 
-
   $.mobile.allowCrossDomainPages = true;
 
 $.mobile.showPageLoadingMsg();
@@ -39,7 +28,7 @@ $.mobile.showPageLoadingMsg();
 	
  
 
-					   		$.ajax({url: "http://www.punjabnewsline.com/topnews.json",
+					   		$.ajax({url: "http://www.punjabnewsline.com/featured.json",
 					        dataType: "json",
 					        async: true,
 					        success: function (result) {
@@ -61,14 +50,14 @@ var ajax = {
 	 parseJSON:function(result){
 	    $.each( result, function(i, row) {
        
-            $('#news-data').append('<li data-icon="false"><a data-role="button"  href="#headline'+i+'" data-transition="none"><h3 class="small-title">' +row.title+ '</h3><span class="small-img"><img src="'+row.imagea+'" /></span></a></li>');
+            $('#news-data').append('<li data-icon="false"><a data-role="button"  href="#headline'+i+'"  data-transition="none"><h3 class="small-title">' +row.title+ '</h3><span class="small-img"><img src="'+row.imagea+'" /></span></a></li>');
           
            
            var story_pages='<div data-role="page" class="news-details"  id="headline'+i+'"></div>';
            var story_header='<div data-role="header" data-theme="a"  data-position="fixed"><a href="#menu-panel'+i+'" class="ui-btn-left" data-role="button" data-icon="myapp-email" data-iconpos="left"  >Menu</a><h1 style=" white-space:normal; font-size: 12px;margin: 1.2em 30% 0.8em;">PUNJAB NEWSLINE</h1></div>';
           
-		   var story_content='<div class="subheader"><div class="type-news">Top News</div><div align="right" class="pointers"><a href="#headline'+ String(i-1)+'"' +
-    '         class="prevButton" data-transition="none"><img src="images/prev.png" /></a>  ' +
+		   var story_content='<div class="subheader"><div class="type-news">Featured News</div><div align="right" class="pointers"><a href="#headline'+ String(i-1)+'"' +
+    '         class="prevButton"  data-transition="none"><img src="images/prev.png" /></a>  ' +
     String(i+1)+'/'+result.length+'      <a href="#headline'+String(i+1)+'"  class="nextButton"  data-transition="none" ><img src="images/next.png" /></a></div></div><div class="news-title">'+row.title+'</div><div class="story_img_cont"><img class="story_img" src="'+row.imagea+'"  /></div><div class="news-date">'+row.date+'</div><div class="story-style">'+row.story+'</div>';
           var story_nav='<div data-role="panel" class="menu-panela" id="menu-panel'+i+'" data-theme="a"></div>';
           
@@ -93,7 +82,6 @@ var ajax = {
 		<link href="style.css" rel="stylesheet" media="screen" type="text/css" \>
 	</head>
 	<body>
-
 	<div data-role="page" id="this_page">
 		<div data-role='header' data-theme='a' data-position="fixed">
 			<a href="#menu-panel" class="ui-btn-left" data-role="button" data-icon="myapp-email" data-iconpos="left" >Menu</a>
@@ -124,7 +112,6 @@ var ajax = {
             <ul data-role="listview"  id="news-data" data-theme="a">
 
             </ul>
-	    
 	        
         </div>
 		
@@ -132,6 +119,6 @@ var ajax = {
 		
 	</div>
 		   
-  
+	     
 	</body>
 </html>
