@@ -64,12 +64,6 @@ public class GCMIntentService extends GCMBaseIntentService {
 	@Override
 	protected void onMessage(Context context, Intent intent) {
 		Log.d(TAG, "onMessage - context: " + context);
-		
-		//
-		
-		
-		
-		//
 
 		// Extract the payload from the message
 		Bundle extras = intent.getExtras();
