@@ -22,14 +22,17 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+       <!-- <link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <title>Punjab Newsline</title>
-        <link href="style.css" rel="stylesheet" media="screen" type="text/css" \>
+        <!--<link href="style.css" rel="stylesheet" media="screen" type="text/css" \>-->
+        <link rel="stylesheet" href="PNL1.css" />
     </head>
     <body>
         
         <script type="text/javascript" src="cordova.js"></script>
-          <script type="text/javascript" charset="utf-8" src="jquery_1.5.2.min.js"></script>
+          <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+           <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile.structure-1.3.1.min.css" />
 		<script type="text/javascript" src="js/index.js"></script>
         
          <script type="text/javascript" src="PushNotification.js"></script>
@@ -211,7 +214,7 @@ var ajax = {
 		<div data-role="panel" class="menu-panela" id="menu-panel" data-theme="b">
 			
 		<ul  data-role="listview" data-theme="b">
-			<li class="list-menu" data-theme="b" class="menu-text">Menu</li>
+			<li class="list-menu menu-text" data-theme="b">Menu</li>
 			<li><a rel="topnews" href="index.html" data-ajax="false">Home</a></li>
 			<li><a rel="punjab" href="punjab.html"  data-ajax="false">Punjab</a></li>
 			<li><a rel="national" href="national.html"   data-ajax="false">National</a></li>
