@@ -14,7 +14,30 @@
 			<script>
 			document.addEventListener('deviceready', onDeviceReady, true);
 		  function onDeviceReady() {
-                
+			   $.mobile.defaultPageTransition = 'none';
+      $.mobile.defaultDialogTransition = 'none';
+      $.mobile.useFastClick = true;
+                 if(navigator.network.connection.type == Connection.NONE)
+                {
+                alert('No Network Connection. Exiting Punjab Newsline');
+                 navigator.app.exitApp();
+                }
+				
+				
+				$(document).on("swipeleft", ".news-details", function() {
+				
+                var page_no=parseInt($(this).attr('rel'))+1;
+               
+                $.mobile.changePage("#headline"+page_no);
+            });
+            
+            
+            $(document).on("swiperight", ".news-details", function() {
+				
+                var page_no=parseInt($(this).attr('rel'))-1;
+              
+                $.mobile.changePage("#headline"+page_no);
+            });
                 
 				document.addEventListener("backbutton", function(e)
 				{
@@ -68,10 +91,10 @@ var ajax = {
 	 parseJSON:function(result){
 	    $.each( result, function(i, row) {
        
-            $('#news-data').append('<li data-icon="false"><a data-role="button"  href="#headline'+i+'"  data-transition="none"><h3 class="small-title">' +row.title+ '</h3><span class="small-img"><img src="'+row.imagea+'" /></span></a></li>');
+            $('#news-data').append('<li data-icon="false"><a data-role="button"    href="#headline'+i+'"  data-transition="none"><h3 class="small-title">' +row.title+ '</h3><span class="small-img"><img src="'+row.imagea+'" /></span></a></li>');
           
            
-           var story_pages='<div data-role="page" class="news-details"  id="headline'+i+'"></div>';
+           var story_pages='<div data-role="page" class="news-details" rel='+i+'  id="headline'+i+'"></div>';
            var story_header='<div data-role="header" data-theme="a"  data-position="fixed"><a href="#menu-panel'+i+'" class="ui-btn-left" data-role="button" data-icon="grid" data-iconpos="left"  >Menu</a><h1 style=" white-space:normal; font-size: 12px;margin: 1.2em 30% 0.8em;">PUNJAB NEWSLINE</h1></div>';
           
 		   var story_content='<div class="subheader"><div class="type-news">Entertainment News</div><div align="right" class="pointers"><a href="#headline'+ String(i-1)+'"' +

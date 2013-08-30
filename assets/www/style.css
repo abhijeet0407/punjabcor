@@ -3,7 +3,7 @@
 }
 #news-data li h3.ui-li-heading { white-space:normal; font-size:small;}
 			.news-date{ font-size:x-small; font-weight:bold; color:#666;}
-			.news-title{ font-size:large; font-weight:bold; color:#069; padding-top:5px;}
+			.news-title{ font-size:large; font-weight:bold; color:#069; padding-top:5px; padding-bottom:10px;}
 			.story-style{ text-align:justify; font-size:small}
 			.MsoNormal{ text-align:justify; font-size:small}
 			.gallery-img{ list-style:none; list-style-type:none; padding:0px;}
@@ -19,6 +19,10 @@
 .pointers(width:50%; float right;)
 .ui-icon-myapp-email {
 	background-image: url("images/menu.png");
+}
+.ui-mobile-viewport-transitioning,
+.ui-mobile-viewport-transitioning .ui-page {
+    overflow: visible;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
 	.ui-icon-myapp-email {

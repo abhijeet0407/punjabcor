@@ -13,9 +13,14 @@
              <script type="text/javascript" src="js/index.js"></script>
             
             <script>
+			document.addEventListener('deviceready', onDeviceReady, true);
 		  function onDeviceReady() {
                 
-                
+                if(navigator.network.connection.type == Connection.NONE)
+                {
+                alert('No Network Connection. Exiting Punjab Newsline');
+                 navigator.app.exitApp();
+                }
 				document.addEventListener("backbutton", function(e)
 				{
                 
@@ -84,7 +89,7 @@ var ajax = {
 	<body>
 	<div data-role="page" id="this_page">
 		<div data-role='header' data-theme='a' data-position="fixed">
-			<a href="#menu-panel" class="ui-btn-left"  data-role="button" data-icon="myapp-email" data-iconpos="left" ><img src="images/menu.png" /></a>
+			<a href="#menu-panel" class="ui-btn-left"  data-role="button" data-icon="grid" data-iconpos="left" >Menu</a>
 			<h1 style=" white-space:normal; font-size: 12px;  margin: 1.2em 30% 0.8em;">PUNJAB NEWSLINE</h1>
 		</div>
 		
