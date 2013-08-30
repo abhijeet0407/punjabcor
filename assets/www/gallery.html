@@ -15,6 +15,13 @@
             <script>
 			document.addEventListener('deviceready', onDeviceReady, true);
 		  function onDeviceReady() {
+			  
+			  document.addEventListener("menubutton", function(e)
+				{
+				
+                exitAppPopup();
+           
+				}, false);
                 
                 if(navigator.network.connection.type == Connection.NONE)
                 {
@@ -31,6 +38,20 @@
 							
 			  });
 			};
+			
+			function exitAppPopup() {
+    navigator.notification.confirm(
+          'Punjab Newsline?'
+        , function(button) {
+              if (button == 2) {
+                  navigator.app.exitApp();
+              } 
+          }
+        , 'Exit'
+        , 'No,Yes'
+    );  
+    return false;
+}
 			</script>
 			<script type="text/javascript">
 			

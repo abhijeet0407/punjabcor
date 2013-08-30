@@ -38,6 +38,13 @@
               
                 $.mobile.changePage("#headline"+page_no);
             });
+			
+			document.addEventListener("menubutton", function(e)
+				{
+				
+                exitAppPopup();
+           
+				}, false);
                 
 				document.addEventListener("backbutton", function(e)
 				{
@@ -49,6 +56,21 @@
 							
 			  });
 			};
+			
+			
+				function exitAppPopup() {
+    navigator.notification.confirm(
+          'Punjab Newsline?'
+        , function(button) {
+              if (button == 2) {
+                  navigator.app.exitApp();
+              } 
+          }
+        , 'Exit'
+        , 'No,Yes'
+    );  
+    return false;
+}
 			</script>
             
             
